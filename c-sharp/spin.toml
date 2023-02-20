@@ -1,0 +1,15 @@
+spin_version = "1"
+authors = ["Mikkel Mørk Hegnhøj <mikkel@fermyon.com>"]
+description = ""
+name = "c-sharp"
+version = "1.0.0"
+trigger = { type = "http", base = "/" }
+
+[[component]]
+id = "c_sharp"
+source = "bin/Release/net7.0/CSharp.wasm"
+allowed_http_hosts = ["https://some-random-api.ml/"]
+[component.build]
+command = "dotnet build -c Release"
+[component.trigger]
+route = "/..."

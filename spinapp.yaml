@@ -1,0 +1,19 @@
+apiVersion: apps/v1                                                  
+kind: Deployment
+metadata:
+  name: wasm-spin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wasm-spin
+  template:
+    metadata:
+      labels:
+        app: wasm-spin
+    spec:
+      runtimeClassName: wasmtime-spin
+      containers:
+      - name: spin-hello
+        image: ghcr.io/mikkelhegn/mydotnet:v1
+        command: ["/"]
